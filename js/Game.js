@@ -24,6 +24,15 @@ class Game{
 if(countRef.exists()){
         player.getCount();
 }
+     car1= createSprite(100,200)
+     car1.addImage(car1Img)
+     car2= createSprite(300,200)
+     car2.addImage(car2Img)
+     car3= createSprite(500,200)
+     car3.addImage(car3Img)
+     car4= createSprite(700,200)
+     car4.addImage(car4Img)
+     cars=[car1,car2,car3,car4]
         
     }
 
@@ -40,19 +49,30 @@ if(countRef.exists()){
             player.distance += 50;
             player.update()
         }
+        var index=0;
+        var x= 200;
 
         if(allPlayers !== undefined){
         var newY= 200
        for ( var plr in allPlayers){
+           cars[index].x=x
+           cars[index].y= height-allPlayers[plr].distance
 
         if( plr === "player" + player.index){
             fill ("red")
+            camera.position.x= cars[index].x
+            camera.position.y= cars[index].y
         }
         else{
             fill ("blue")
+
         }
-           text (allPlayers[plr].name + ";" + allPlayers[plr].distance, 120 , newY)
-           newY += 50
+         //  text (allPlayers[plr].name + ";" + allPlayers[plr].distance, 120 , newY)
+         //  newY += 50
+           drawSprites()
+
+           index ++
+           x += 200
        }
     }
     }
