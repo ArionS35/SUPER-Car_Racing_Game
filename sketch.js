@@ -7,12 +7,14 @@ var allPlayers
 var car1, car2, car3, car4;
 //var car1Img, car2Img, car3Img, car4Img,
 var cars=[]
+var myRank;
 
 function preload(){
   car1Img= loadImage("images/car1.png")
   car2Img= loadImage("images/car2.png")
   car3Img= loadImage("images/car3.png")
   car4Img= loadImage("images/car4.png")
+  trackImg= loadImage("images/track.jpg")
 }
 
 function setup(){
@@ -26,10 +28,12 @@ function setup(){
 }
 
 function draw(){
-  background("white");
+ // background("white");
+
+ // image(trackImg,0,-height*4,width,height*5)
   
    if(playerCount === 4){
-     gameState= 1;
+    // gameState= 1;
      game.update(1)
    }
   
@@ -37,6 +41,10 @@ function draw(){
 
     clear ();
     game.play()
+   }
+
+   if(gameState===2){
+     game.end()
    }
 }
 
